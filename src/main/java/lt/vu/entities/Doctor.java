@@ -18,18 +18,19 @@ import java.util.Objects;
 @Table(name="DOCTOR")
 public class Doctor implements Serializable{
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="NAME", length=50, nullable=false, unique=false)
+    @Size(max = 50)
+    @Column(name="NAME")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name="CLINIC_ID")
+    private Clinic clinic;
 
     public String sakykLabas() {
         return "Labas " + new Date() + " " + toString();
-    }
-
-    public void init() {
-        System.out.println(toString() + " constructed.");
     }
 
     public void setId(Long id) {

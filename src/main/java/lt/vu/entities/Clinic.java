@@ -7,24 +7,28 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name="PATIENT")
-public class Patient implements Serializable{
+@Table(name="CLINIC")
+public class Clinic {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
     @Size(max = 50)
-    @Column(name="NAME")
-    private String name;
+    @Column(name="TITLE")
+    private String title;
+
+    @OneToMany(mappedBy = "clinic")
+    private List<Player> doctors = new ArrayList<>();
 
     public void init() {
         System.out.println(toString() + " constructed.");
