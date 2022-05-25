@@ -25,7 +25,7 @@ import java.util.Objects;
 public class Clinic {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    private int id;
 
     @Size(max = 50)
     @Column(name="TITLE")
@@ -38,7 +38,7 @@ public class Clinic {
         System.out.println(toString() + " constructed.");
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

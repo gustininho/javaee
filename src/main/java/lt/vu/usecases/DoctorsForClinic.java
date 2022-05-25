@@ -44,7 +44,7 @@ public class DoctorsForClinic implements Serializable {
 
     @Transactional
     @LoggedInvocation
-    public void createPlayer() {
+    public void createDoctor() {
         doctorToCreate.setClinic(this.clinic);
         doctorsDAO.persist(doctorToCreate);
     }

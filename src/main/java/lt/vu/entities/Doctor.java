@@ -23,11 +23,11 @@ import java.util.Objects;
 public class Doctor implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
 
     @Size(max = 50)
     @Column(name="NAME")
-    private String name;
+    public String name;
 
     @ManyToOne
     @JoinColumn(name="CLINIC_ID")

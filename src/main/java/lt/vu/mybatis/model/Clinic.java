@@ -15,7 +15,7 @@ public class Clinic {
      *
      * @mbg.generated Wed May 25 10:42:55 EEST 2022
      */
-    private Long id;
+    private int id;
 
     private List<Doctor> doctors;
 
@@ -36,7 +36,7 @@ public class Clinic {
      *
      * @mbg.generated Wed May 25 10:42:55 EEST 2022
      */
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
@@ -48,7 +48,7 @@ public class Clinic {
      *
      * @mbg.generated Wed May 25 10:42:55 EEST 2022
      */
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
