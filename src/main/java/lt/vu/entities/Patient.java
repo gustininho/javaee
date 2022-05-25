@@ -19,7 +19,7 @@ import java.util.Objects;
 @Table(name="PATIENT")
 public class Patient implements Serializable{
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     @Size(max = 50)
@@ -32,10 +32,5 @@ public class Patient implements Serializable{
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    @Id
-    public Long getId() {
-        return id;
     }
 }

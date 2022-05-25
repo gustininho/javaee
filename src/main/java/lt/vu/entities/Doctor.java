@@ -14,14 +14,15 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+@Entity
 @NamedQueries({
         @NamedQuery(name = "Doctor.findAll", query = "select a from Doctor as a")
 })
-@Entity
 @Table(name="DOCTOR")
+@Getter @Setter
 public class Doctor implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Size(max = 50)
@@ -32,16 +33,6 @@ public class Doctor implements Serializable{
     @JoinColumn(name="CLINIC_ID")
     private Clinic clinic;
 
-    public String sakykLabas() {
-        return "Labas " + new Date() + " " + toString();
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Id
-    public Long getId() {
-        return id;
+    public Doctor() {
     }
 }

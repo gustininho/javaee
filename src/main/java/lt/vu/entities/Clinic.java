@@ -17,10 +17,14 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Clinic.findAll", query = "select c from Clinic as c")
+})
 @Table(name="CLINIC")
+@Getter @Setter
 public class Clinic {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     @Size(max = 50)
@@ -28,7 +32,7 @@ public class Clinic {
     private String title;
 
     @OneToMany(mappedBy = "clinic")
-    private List<Player> doctors = new ArrayList<>();
+    private List<Doctor> doctors = new ArrayList<>();
 
     public void init() {
         System.out.println(toString() + " constructed.");
@@ -36,10 +40,5 @@ public class Clinic {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    @Id
-    public Long getId() {
-        return id;
     }
 }

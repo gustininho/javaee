@@ -10,7 +10,12 @@
     <id column="ID" jdbcType="BIGINT" property="id" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="CLINIC_ID" jdbcType="INTEGER" property="clinicId" />
+
+  <association property="clinic"
+               columnPrefix="clinic_"
+               resultMap="lt.vu.mybatis.dao.ClinicMapper.BaseResultMap"/>
   </resultMap>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     <!--
       WARNING - @mbg.generated

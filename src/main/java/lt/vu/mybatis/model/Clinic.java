@@ -1,5 +1,12 @@
 package lt.vu.mybatis.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
+
+@Getter
+@Setter
 public class Clinic {
     /**
      *
@@ -9,6 +16,8 @@ public class Clinic {
      * @mbg.generated Wed May 25 10:42:55 EEST 2022
      */
     private Long id;
+
+    private List<Doctor> doctors;
 
     /**
      *
