@@ -14,6 +14,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+@NamedQueries({
+        @NamedQuery(name = "Doctor.findAll", query = "select a from Doctor as a")
+})
 @Entity
 @Table(name="DOCTOR")
 public class Doctor implements Serializable{
