@@ -3,15 +3,16 @@ package lt.vu.usecases;
 
 import lombok.Getter;
 import lombok.Setter;
+import lt.vu.entities.Doctor;
 import lt.vu.interceptors.LoggedInvocation;
-import lt.vu.persistence.PlayersDAO;
-import lt.vu.entities.Player;
+import lt.vu.persistence.DoctorsDAO;
 
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
 import javax.persistence.OptimisticLockException;
 import javax.transaction.Transactional;
 import java.io.Serializable;
@@ -20,30 +21,30 @@ import java.util.Map;
 @ViewScoped
 @Named
 @Getter @Setter
-public class UpdatePlayerDetails implements Serializable {
+public class UpdateDoctor implements Serializable {
 
-    private Player player;
+    private Doctor doctor;
 
     @Inject
-    private PlayersDAO playersDAO;
+    private DoctorsDAO doctorsDAO;
 
     @PostConstruct
     private void init() {
-        System.out.println("UpdatePlayerDetails INIT CALLED");
+        System.out.println("Update Doctor INIT CALLED");
         Map<String, String> requestParameters =
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-        Integer playerId = Integer.parseInt(requestParameters.get("playerId"));
-        this.player = playersDAO.findOne(playerId);
+        Integer id = Integer.parseInt(requestParameters.get("doctorId"));
+        this.doctor = doctorsDAO.findOne(id);
     }
 
     @Transactional
     @LoggedInvocation
-    public String updatePlayerJerseyNumber() {
+    public String updateName() {
         try{
-            playersDAO.update(this.player);
+            doctorsDAO.update(this.doctor);
         } catch (OptimisticLockException e) {
-            return "/doctorDetails.xhtml?faces-redirect=true&playerId=" + this.player.getId() + "&error=optimistic-lock-exception";
+            return "/doctorDetails.xhtml?faces-redirect=true&doctorId=" + this.doctor.getId() + "&error=optimistic-lock-exception";
         }
-        return "players.xhtml?teamId=" + this.player.getTeam().getId() + "&faces-redirect=true";
+        return "doctors.xhtml?clinicId=" + this.doctor.getClinic().getId() + "&faces-redirect=true";
     }
 }

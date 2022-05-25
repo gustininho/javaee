@@ -27,7 +27,7 @@ public class GeneratePlayerJerseyNumber implements Serializable {
 
         jerseyNumberGenerationTask = CompletableFuture.supplyAsync(() -> jerseyNumberGenerator.generateJerseyNumber());
 
-        return  "/playerDetails.xhtml?faces-redirect=true&playerId=" + requestParameters.get("playerId");
+        return  "/doctorDetails.xhtml?faces-redirect=true&playerId=" + requestParameters.get("playerId");
     }
 
     public boolean isJerseyGenerationRunning() {

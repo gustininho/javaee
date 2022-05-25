@@ -29,6 +29,10 @@ public class Doctor implements Serializable{
     @Column(name="NAME")
     public String name;
 
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
     @ManyToOne
     @JoinColumn(name="CLINIC_ID")
     private Clinic clinic;

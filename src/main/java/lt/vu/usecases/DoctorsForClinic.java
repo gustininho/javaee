@@ -48,4 +48,5 @@ public class DoctorsForClinic implements Serializable {
         doctorToCreate.setClinic(this.clinic);
         doctorsDAO.persist(doctorToCreate);
     }
+
 }

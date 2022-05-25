@@ -11,7 +11,7 @@
     <ol>
         <ui:repeat value="#{doctorsForClinic.clinic.doctors}" var="doctor">
             <li>
-                <p> #{doctor.name}</p>
+                <h:link value="#{doctor.name} " outcome="doctorDetails?doctorId=#{doctor.id}" />
             </li>
         </ui:repeat>
     </ol>
