@@ -12,6 +12,6 @@ public class RoadCalculatorBicycle implements RoadCalculator {
         } catch (InterruptedException e) {
         }
         Integer time = new Random().nextInt(100);
-        return time;
+        return time*2;
     }
 }

@@ -6,6 +6,5 @@ import java.util.Random;
 
 @ApplicationScoped
 public interface RoadCalculator  {
-
     public Integer calculateRoadToNearestClinic();
 }
