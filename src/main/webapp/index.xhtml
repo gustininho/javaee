@@ -6,7 +6,9 @@
 >
 <h:head/>
 <h:body>
-    <h2>Sveiki atvykę į Clinicum:</h2>
+    <h2>Sveiki atvykę į Clinicum!</h2>
+    <br></br>
+    <h4>Klinikų sąrašas:</h4>
     <ol>
         <ui:repeat value="#{clinics.allClinics}" var="clinic">
             <li><h:link value="#{clinic.title}" outcome="doctors?clinicId=#{clinic.id}" /></li>
@@ -16,6 +18,13 @@
         <h:inputText value="#{clinics.clinicToCreate.title}" required="true" />
         <h:commandButton value="Create a new clinic" actionListener="#{clinics.createClinic}" action="index?faces-redirect=true"/>
     </h:form>
+    <h:form>
+        <h:outputText value="#{calculateRoadTime.calculationStatus}" />
+        <h:commandButton value="Calculate time (by car) to the neariest our clinic" disabled="#{calculateRoadTime.calculating}" action="#{calculateRoadTime.calculateRoadTime()}">
+        </h:commandButton>
+    </h:form>
+
+
     <h:link outcome="myBatis/teams" value="MyBatis implementation"/>
 </h:body>
 </html>

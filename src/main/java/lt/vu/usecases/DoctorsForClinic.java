@@ -15,9 +15,6 @@ import lt.vu.entities.Doctor;
 import lt.vu.interceptors.LoggedInvocation;
 import lt.vu.persistence.ClinicsDAO;
 import lt.vu.persistence.DoctorsDAO;
-import lt.vu.persistence.TeamsDAO;
-import lt.vu.entities.Player;
-import lt.vu.entities.Team;
 
 @Model
 public class DoctorsForClinic implements Serializable {

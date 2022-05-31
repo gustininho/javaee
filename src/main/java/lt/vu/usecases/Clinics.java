@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Clinic;
 import lt.vu.persistence.ClinicsDAO;
-import lt.vu.persistence.TeamsDAO;
-import lt.vu.entities.Team;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;

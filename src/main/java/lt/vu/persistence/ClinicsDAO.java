@@ -1,7 +1,6 @@
 package lt.vu.persistence;
 
 import lt.vu.entities.Clinic;
-import lt.vu.entities.Team;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
